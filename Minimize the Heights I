@@ -1,0 +1,21 @@
+import java.util.*;
+public class Main
+{
+    public static int findMindiffernce(int a[],int k){
+        Arrays.sort(a);
+        int n=a.length;
+        int res=a[n-1]-a[0];
+        int smaller=a[0]+k;
+        int larger= a[n-1]-k;
+        for(int i=0;i<n;i++){
+            int min=Math.min(smaller,a[i]-k);
+            int max=Math.max(larger,a[i]+k);
+            res=Math.min(res,max-min);
+        }
+        return res;
+    }
+	public static void main(String[] args) {
+	int a[]= {3, 9, 12, 16, 20};
+	System.out.println("answer "+findMindiffernce(a,3));
+	}
+}
